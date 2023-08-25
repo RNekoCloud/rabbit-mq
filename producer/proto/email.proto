@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "./proto";
+
+service MessageService {
+    rpc PublishMessage (Message) returns (PublishResponse);
+}
+
+message Message {
+    bytes body = 1;
+    string content_type = 2;
+}
+
+message PublishResponse {
+    bool success = 1;
+    string message = 2;
+}

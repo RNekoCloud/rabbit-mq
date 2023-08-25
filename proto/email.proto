@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "./proto";
+
+service MessageService {
+    rpc ConsumeMessages (ConsumeRequest) returns (stream Message);
+}
+
+message ConsumeRequest {
+    string queue_name = 1;
+}
+
+message Message {
+    bytes body = 1;
+}
